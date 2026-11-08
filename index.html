@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Installa StatioNapp</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chewy&family=Figtree:wght@400;600;800&display=swap">
+<style>
+/* Layout: colonna unica da leggere sul telefono, passi numerati lungo una "linea ferroviaria" */
+:root {
+  --bg: #F4F2FF;
+  --card: #FFFFFF;
+  --fg: #221B45;
+  --muted: #5E5880;
+  --accent: #6D54CE;
+  --ink: #35237A;
+  --line: #DDD6FA;
+  --warn-bg: #FFF4E0;
+  --warn-fg: #7A4B00;
+  --hero-a: #6D54CE;
+  --hero-b: #8A6FE8;
+  --on-hero: #FFFFFF;
+  --display: 'Chewy', 'Comic Sans MS', cursive;
+  --body: 'Figtree', system-ui, -apple-system, 'Segoe UI', sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0E0F1D; --card: #181A2E; --fg: #ECE9FF; --muted: #A9A3CC; --accent: #8B6FFF;
+    --ink: #B9A8FF; --line: #2E2B52; --warn-bg: #3A2A0E; --warn-fg: #FFD58A;
+    --hero-a: #2A2360; --hero-b: #3B2F86; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0E0F1D; --card: #181A2E; --fg: #ECE9FF; --muted: #A9A3CC; --accent: #8B6FFF;
+  --ink: #B9A8FF; --line: #2E2B52; --warn-bg: #3A2A0E; --warn-fg: #FFD58A;
+  --hero-a: #2A2360; --hero-b: #3B2F86; color-scheme: dark;
+}
+
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--bg); color: var(--fg); font-family: var(--body); font-size: 16px; line-height: 1.55; }
+
+.hero {
+  background: linear-gradient(135deg, var(--hero-a), var(--hero-b));
+  color: var(--on-hero);
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 36px 44px;
+}
+.wrap { max-width: 620px; margin: 0 auto; }
+.hero h1 { font-family: var(--display); font-weight: 400; font-size: 3rem; line-height: 1; margin: 0 0 10px; letter-spacing: 1px; }
+.hero p { margin: 0; font-size: 1.05rem; opacity: .92; max-width: 34em; text-wrap: pretty; }
+
+main {
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 0 48px;
+}
+
+.download {
+  margin-top: -26px;
+  background: var(--card); border-radius: 18px; padding: 18px;
+  box-shadow: 0 6px 24px rgba(53,35,122,.14);
+  display: grid; gap: 10px;
+}
+.btn {
+  display: block; text-align: center; text-decoration: none;
+  background: var(--accent); color: #fff; font-weight: 800; font-size: 1.1rem;
+  padding: 16px; border-radius: 14px;
+}
+.btn:focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; }
+.btn[aria-disabled="true"] { opacity: .5; pointer-events: none; }
+.download small { color: var(--muted); text-align: center; }
+
+.intro { margin: 28px 4px 8px; color: var(--muted); }
+
+ol.steps { list-style: none; margin: 0; padding: 0; position: relative; }
+ol.steps::before {
+  content: ""; position: absolute; left: 19px; top: 20px; bottom: 20px;
+  border-left: 3px dashed var(--line);
+}
+.step { position: relative; display: grid; grid-template-columns: 40px minmax(0, 1fr); gap: 14px; padding-block: 18px; }
+.num {
+  width: 40px; height: 40px; border-radius: 50%;
+  background: var(--accent); color: #fff; font-weight: 800;
+  display: grid; place-items: center; position: relative; z-index: 1;
+  font-variant-numeric: tabular-nums;
+}
+.step h2 { font-size: 1.15rem; margin: 6px 0 6px; color: var(--ink); text-wrap: balance; }
+.step p { margin: 0 0 8px; }
+.step ul { margin: 0 0 8px; padding-left: 20px; }
+.step li { margin-bottom: 4px; }
+.say { font-style: italic; color: var(--muted); }
+b { font-weight: 800; }
+
+.brand { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 10px 12px; margin-top: 10px; font-size: .95rem; }
+.brand .tag { display: inline-block; font-size: .72rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); margin-bottom: 2px; }
+.brand p { margin: 0; }
+
+.key { background: var(--warn-bg); color: var(--warn-fg); border-radius: 12px; padding: 10px 12px; margin-top: 10px; font-weight: 600; font-size: .95rem; }
+
+.test {
+  margin-top: 24px; background: var(--card); border-radius: 18px; padding: 20px;
+  border: 2px solid var(--accent);
+}
+.test h2 { font-family: var(--display); font-weight: 400; font-size: 1.8rem; margin: 0 0 8px; color: var(--ink); letter-spacing: .5px; }
+.test p { margin: 0 0 10px; }
+.test p:last-child { margin-bottom: 0; }
+.fake {
+  display: block; font-family: ui-monospace, Consolas, monospace; font-size: .85rem;
+  background: var(--bg); padding: 8px 10px; border-radius: 8px; color: var(--muted); margin: 6px 0 10px;
+}
+</style>
+
+</head>
+<body>
+<header class="hero">
+  <div class="wrap">
+    <h1>StatioNapp</h1>
+    <p>La sveglia che ti avvisa quando arrivi alla tua fermata. Questa è una versione di prova: ecco come installarla, passo per passo.</p>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <div class="download">
+      <a id="link-apk" class="btn" href="https://github.com/mecgyver74/stationapp-beta/releases/latest/download/StatioNapp.apk">Scarica StatioNapp</a>
+      <small>Apri questa pagina dal telefono Android su cui vuoi installare l'app.</small>
+    </div>
+
+    <p class="intro">L'app non è ancora sul Play Store, quindi il telefono mostrerà qualche avviso di sicurezza. È normale: qui sotto trovi cosa toccare in ogni schermata.</p>
+
+    <ol class="steps">
+      <li class="step">
+        <span class="num">1</span>
+        <div>
+          <h2>Togli la vecchia versione</h2>
+          <p>Se avevi già installato una versione di prova, tieni premuta l'icona di StatioNapp e scegli <b>Disinstalla</b>. Se è la prima volta, salta questo passo.</p>
+        </div>
+      </li>
+
+      <li class="step">
+        <span class="num">2</span>
+        <div>
+          <h2>Scarica il file</h2>
+          <p>Tocca il pulsante viola qui sopra. Se Chrome avvisa <span class="say">"Questo tipo di file può danneggiare il dispositivo"</span>, tocca <b>Scarica comunque</b>.</p>
+        </div>
+      </li>
+
+      <li class="step">
+        <span class="num">3</span>
+        <div>
+          <h2>Apri il file scaricato</h2>
+          <p>Tocca la notifica <span class="say">"Download completato"</span>. Se non la vedi, apri l'app <b>File</b> (o <b>I miei file</b>), entra in <b>Download</b> e tocca il file che finisce con <b>.apk</b>.</p>
+        </div>
+      </li>
+
+      <li class="step">
+        <span class="num">4</span>
+        <div>
+          <h2>Consenti l'installazione</h2>
+          <p>Il telefono dirà che per sicurezza non può installare app da questa fonte. Allora:</p>
+          <ul>
+            <li>tocca <b>Impostazioni</b></li>
+            <li>attiva <b>Consenti da questa fonte</b> (a volte si chiama <span class="say">Autorizza app sconosciute</span>)</li>
+            <li>torna indietro con la freccia e tocca <b>Installa</b></li>
+          </ul>
+          <div class="brand">
+            <span class="tag">Samsung</span>
+            <p>Se compare <span class="say">"Auto Blocker"</span> (o <span class="say">Blocco automatico</span>), disattivalo prima: Impostazioni → Sicurezza e privacy → Auto Blocker → Off. Puoi riattivarlo a fine installazione.</p>
+          </div>
+          <div class="brand">
+            <span class="tag">Xiaomi · Redmi · Poco</span>
+            <p>Può chiederti di accedere all'account Xiaomi o di aspettare qualche secondo prima di confermare. Se propone una scansione di sicurezza, lasciala finire e poi tocca <b>Installa comunque</b>.</p>
+          </div>
+        </div>
+      </li>
+
+      <li class="step">
+        <span class="num">5</span>
+        <div>
+          <h2>Supera l'avviso di Play Protect</h2>
+          <p>Se compare <span class="say">"App non sicura bloccata"</span> o <span class="say">"Play Protect non riconosce questa app"</span>:</p>
+          <ul>
+            <li>tocca <b>Altri dettagli</b> (o la piccola freccia)</li>
+            <li>tocca <b>Installa comunque</b></li>
+          </ul>
+          <p>Se chiede di inviare l'app a Google per controllarla, puoi rispondere <b>Non inviare</b>.</p>
+        </div>
+      </li>
+
+      <li class="step">
+        <span class="num">6</span>
+        <div>
+          <h2>Al primo avvio, concedi i permessi</h2>
+          <p>Apri StatioNapp e rispondi così:</p>
+          <ul>
+            <li>Notifiche → <b>Consenti</b></li>
+            <li>Funzionamento a schermo spento → <b>Continua</b>, poi <b>Consenti</b></li>
+            <li>Posizione (alla prima sveglia) → <b>Mentre usi l'app</b>, poi nelle impostazioni scegli <b>Consenti sempre</b></li>
+          </ul>
+          <div class="key">Il permesso per lo schermo spento è quello decisivo: senza, la sveglia non suona a telefono bloccato.</div>
+        </div>
+      </li>
+
+      <li class="step">
+        <span class="num">7</span>
+        <div>
+          <h2>Controlla che sia tutto verde</h2>
+          <p>Nell'app tocca l'ultima icona in basso (Impostazioni) e scorri fino a <b>Permessi</b>: le tre voci devono dire <b>Concesso</b>.</p>
+          <div class="brand">
+            <span class="tag">Samsung</span>
+            <p>Impostazioni del telefono → App → StatioNapp → Batteria → <b>Senza restrizioni</b>.</p>
+          </div>
+          <div class="brand">
+            <span class="tag">Xiaomi · Redmi · Poco</span>
+            <p>Impostazioni → App → StatioNapp → Risparmio batteria → <b>Nessuna restrizione</b>. Attiva anche <b>Avvio automatico</b>.</p>
+          </div>
+        </div>
+      </li>
+
+      <li class="step">
+        <span class="num">8</span>
+        <div>
+          <h2>Rimetti la sicurezza (facoltativo)</h2>
+          <p>Finita l'installazione puoi spegnere di nuovo <b>Consenti da questa fonte</b> per Chrome o WhatsApp. L'app resta installata.</p>
+        </div>
+      </li>
+    </ol>
+
+    <section class="test">
+      <h2>Come provarla</h2>
+      <p>Scegli una stazione, avvia la sveglia, blocca il telefono e mettilo in tasca. Dovrebbe vibrare in avvicinamento e suonare quando sei quasi arrivato.</p>
+      <p>Se non suona, sblocca il telefono e apri l'app. Nella schermata della sveglia c'è una riga piccola come questa:</p>
+      <span class="fake">GPS aggiornato 5 s fa · pausa max 2 min</span>
+      <p>Fanne uno screenshot e mandalo insieme al modello del telefono. Grazie!</p>
+    </section>
+  </div>
+</main>
+</body>
+</html>
