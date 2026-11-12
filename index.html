@@ -106,6 +106,10 @@ b { font-weight: 800; }
 .test h2 { font-family: var(--display); font-weight: 400; font-size: 1.8rem; margin: 0 0 8px; color: var(--ink); letter-spacing: .5px; }
 .test p { margin: 0 0 10px; }
 .test p:last-child { margin-bottom: 0; }
+.mini { margin: 0 0 12px; padding-left: 22px; }
+.mini li { margin-bottom: 6px; }
+.test + .test { margin-top: 16px; }
+.privacy { font-size: .92rem; color: var(--muted); }
 .fake {
   display: block; font-family: ui-monospace, Consolas, monospace; font-size: .85rem;
   background: var(--bg); padding: 8px 10px; border-radius: 8px; color: var(--muted); margin: 6px 0 10px;
@@ -136,6 +140,7 @@ b { font-weight: 800; }
         <div>
           <h2>Togli la vecchia versione</h2>
           <p>Se avevi già installato una versione di prova, tieni premuta l'icona di StatioNapp e scegli <b>Disinstalla</b>. Se è la prima volta, salta questo passo.</p>
+          <div class="key">Questa volta è obbligatorio: la nuova versione per il telefono è un'app diversa. Se non togli la vecchia ti ritrovi due StatioNapp e due sveglie. Impostazioni e statistiche della vecchia si perdono.</div>
         </div>
       </li>
 
@@ -211,6 +216,7 @@ b { font-weight: 800; }
           <div class="brand">
             <span class="tag">Samsung</span>
             <p>Impostazioni del telefono → App → StatioNapp → Batteria → <b>Senza restrizioni</b>.</p>
+            <p>Poi Impostazioni → Batteria → <b>Limiti utilizzo in background</b> → <b>App mai in sospensione</b> → <b>+</b> → scegli StatioNapp. Controlla anche che StatioNapp <b>non</b> sia tra le "App in sospensione" o "in sospensione profonda". Senza questo, Samsung può fermare il GPS a schermo spento.</p>
           </div>
           <div class="brand">
             <span class="tag">Xiaomi · Redmi · Poco</span>
@@ -230,10 +236,24 @@ b { font-weight: 800; }
 
     <section class="test">
       <h2>Come provarla</h2>
-      <p>Scegli una stazione, avvia la sveglia, blocca il telefono e mettilo in tasca. Dovrebbe vibrare in avvicinamento e suonare quando sei quasi arrivato.</p>
-      <p>Se non suona, sblocca il telefono e apri l'app. Nella schermata della sveglia c'è una riga piccola come questa:</p>
-      <span class="fake">GPS aggiornato 5 s fa · pausa max 2 min</span>
-      <p>Fanne uno screenshot e mandalo insieme al modello del telefono. Grazie!</p>
+      <p>Scegli una stazione, avvia la sveglia, blocca il telefono e mettilo in tasca. Dovrebbe vibrare in avvicinamento e, quando sei quasi arrivato, <b>suonare e vibrare senza fermarsi</b> finché non tocchi <b>Sono sveglio</b> (nell'app o sulla notifica).</p>
+      <p>Il suono usa il <b>volume della sveglia</b> del telefono, non quello di musica e video: controlla che non sia a zero.</p>
+    </section>
+
+    <section class="test">
+      <h2>Dopo ogni viaggio: invia la diagnostica</h2>
+      <p>Durante ogni sveglia l'app tiene un registro di cosa fa il GPS. Mandalo <b>dopo ogni prova</b>, sia che abbia funzionato sia che no: confrontare i due casi è ciò che serve per trovare i problemi.</p>
+      <ol class="mini">
+        <li>Apri StatioNapp e tocca l'ultima icona in basso (<b>Impostazioni</b>).</li>
+        <li>Scorri fino in fondo, alla sezione <b>Diagnostica</b>, e tocca <b>Invia diagnostica</b>.</li>
+        <li>Si apre una mail già pronta per <b>stationapp.dev@gmail.com</b>, con il registro in allegato. Se il telefono chiede con quale app, scegli <b>Gmail</b>.</li>
+        <li>Nel testo della mail rispondi alle domande già scritte: cosa è successo, giorno e ora del viaggio, stazione di arrivo, se lo schermo era spento.</li>
+        <li>Tocca <b>Invia</b>.</li>
+      </ol>
+      <p>Se non hai un'app di posta, si apre la normale condivisione: puoi mandare il registro su WhatsApp a chi ti ha dato l'app.</p>
+      <div class="key">Non disinstallare l'app prima di aver inviato la diagnostica: il registro sta solo sul telefono e si cancella con l'app.</div>
+      <p class="privacy"><b>Privacy:</b> il registro contiene solo orari, distanze dalla fermata, precisione del GPS e lo stato dei permessi. Non contiene mai la tua posizione (nessuna coordinata), né contatti, foto o altri dati. Resta sul telefono finché non lo invii tu.</p>
+      <p>Il registro tiene le ultime sveglie. Se vuoi ripartire da zero prima di una prova, nella stessa sezione c'è <b>Cancella registro</b>, ma cancellalo solo <b>dopo</b> averlo inviato.</p>
     </section>
   </div>
 </main>
