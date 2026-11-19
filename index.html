@@ -128,7 +128,7 @@ b { font-weight: 800; }
 <main>
   <div class="wrap">
     <div class="download">
-      <a id="link-apk" class="btn" href="StatioNapp-2026-11-12.apk">Scarica StatioNapp</a>
+      <a id="link-apk" class="btn" href="StatioNapp-2026-11-19.apk">Scarica StatioNapp</a>
       <small>Apri questa pagina dal telefono Android su cui vuoi installare l'app.</small>
     </div>
 
@@ -139,8 +139,9 @@ b { font-weight: 800; }
         <span class="num">1</span>
         <div>
           <h2>Togli la vecchia versione</h2>
-          <p>Se avevi già installato una versione di prova, tieni premuta l'icona di StatioNapp e scegli <b>Disinstalla</b>. Se è la prima volta, salta questo passo.</p>
-          <div class="key">Questa volta è obbligatorio: la nuova versione per il telefono è un'app diversa. Se non togli la vecchia ti ritrovi due StatioNapp e due sveglie. Impostazioni e statistiche della vecchia si perdono.</div>
+          <p>Se è la prima volta, salta questo passo.</p>
+          <p>Se hai la versione del <b>12 novembre</b> (quella con <b>Invia diagnostica</b> nelle Impostazioni), <b>non disinstallarla</b>: la nuova si installa sopra e tieni impostazioni e registro. Prima però invia la diagnostica dei viaggi già fatti.</p>
+          <p>Se hai una versione <b>più vecchia</b>, tieni premuta l'icona di StatioNapp e scegli <b>Disinstalla</b>: è un'app diversa, e senza disinstallarla ti ritroveresti due StatioNapp.</p>
         </div>
       </li>
 
@@ -202,9 +203,9 @@ b { font-weight: 800; }
           <ul>
             <li>Notifiche → <b>Consenti</b></li>
             <li>Funzionamento a schermo spento → <b>Continua</b>, poi <b>Consenti</b></li>
-            <li>Posizione (alla prima sveglia) → <b>Mentre usi l'app</b>, poi nelle impostazioni scegli <b>Consenti sempre</b></li>
+            <li>Posizione (alla prima sveglia) → <b>Mentre usi l'app</b>, poi l'app ti porta alle impostazioni: scegli <b>Consenti sempre</b>, torna nell'app e avvia di nuovo la sveglia</li>
           </ul>
-          <div class="key">Il permesso per lo schermo spento è quello decisivo: senza, la sveglia non suona a telefono bloccato.</div>
+          <div class="key">Da questa versione <b>"Consenti sempre" è obbligatorio</b>: senza, la sveglia non parte. Nelle prove è emerso che senza questo permesso Android smette di dare la posizione all'app a schermo spento, e la sveglia non suona.</div>
         </div>
       </li>
 
@@ -238,6 +239,11 @@ b { font-weight: 800; }
       <h2>Come provarla</h2>
       <p>Scegli una stazione, avvia la sveglia, blocca il telefono e mettilo in tasca. Dovrebbe vibrare in avvicinamento e, quando sei quasi arrivato, <b>suonare e vibrare senza fermarsi</b> finché non tocchi <b>Sono sveglio</b> (nell'app o sulla notifica).</p>
       <p>Il suono usa il <b>volume della sveglia</b> del telefono, non quello di musica e video: controlla che non sia a zero.</p>
+      <ul>
+        <li><b>Tieni il suono acceso.</b> Se nelle impostazioni dell'app è spento, all'avvio compare un avviso con il pulsante <b>Accendi suono</b>: in tasca la sola vibrazione si sente poco.</li>
+        <li><b>Avvia la sveglia una volta sola</b> e poi lasciala lavorare: evita di avviarla e annullarla più volte di seguito.</li>
+        <li>Se nella schermata della sveglia compare una riga arancione <span class="say">"Nessuna posizione da…: GPS riavviato"</span>, l'app si è accorta che il GPS si era fermato e lo ha fatto ripartire. Segnalalo nella mail della diagnostica.</li>
+      </ul>
     </section>
 
     <section class="test">
